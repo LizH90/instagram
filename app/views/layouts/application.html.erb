@@ -4,11 +4,22 @@
     <title>InstagramApp</title>
     <%= csrf_meta_tags %>
 
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <style>
+      body {
+        padding-top: 54px;
+      }
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+
+    </style>
   </head>
 
   <body>
@@ -16,10 +27,10 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <%= link_to "Instagram", root_url, class: "navbar-brand" %>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
@@ -28,13 +39,17 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <%= link_to "New Post", new_post_path %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+            <% if current_user %>
+            <%= link_to "Logout", destroy_user_session_path %>
+            <% else %>
+            <%= link_to "Login", new_user_session_path %>
+            <% end %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <%= link_to "Sign Up", new_user_registration_path %>
             </li>
           </ul>
         </div>
