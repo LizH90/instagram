@@ -35,12 +35,13 @@ gem 'paperclip', '~> 5.0.0'
 gem 'rubocop', '0.48.1'
 gem 'rubocop-rails'
 gem 'jquery-rails'
+gem 'pg'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'rspec'
+  gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
