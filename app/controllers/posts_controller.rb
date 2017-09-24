@@ -5,7 +5,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order('created_at DESC')
+    if signed_in?
+      @posts = Post.all.order('created_at DESC')
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def show

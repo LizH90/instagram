@@ -27,6 +27,9 @@ $ rake db:migrate
 
 Tests:
 -------
+```
+$ rspec
+```
 
 User Stories:
 ---------
