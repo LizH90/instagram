@@ -2,8 +2,12 @@
   <div class="white">
     <%= image_tag x.image.url(:medium)%>
     <br>
-    <%= x.description %>
+    <br>
+    <p><%= x.description %></p>
+    <%= link_to 'Edit', post_path(@posts), method: :put %> |
+    <%= link_to 'Delete', post_path(@posts), method: :delete %>
     <br>
     <br>
     <br>
+
 <%end%>

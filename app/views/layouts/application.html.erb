@@ -33,29 +33,33 @@
         <%= link_to "Instagram", root_url, class: "navbar-brand" %>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
             <li class="nav-item">
-              <%= link_to "New Post", new_post_path %>
-            </li>
-
+               <a class="nav-link" href="/posts/new">New Post
+                 <span class="sr-only">(current)</span>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/users/sign_up">Sign Up
+                 <span class="sr-only">(current)</span>
+               </a>
+             </li>
             <% if current_user %>
-            <li class="nav-item">
-              <li>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                  <span class="sr-only">(current)</span>
+                </a>
               </li>
             <% else %>
-              <li>
+              <li class="nav-item">
+                <a class="nav-link">
                 <%= link_to "Login", new_user_session_path %>
+                <span class="sr-only">(current)</span>
+              </a>
               </li>
             <% end %>
             </li>
-            <li class="nav-item">
-              <%= link_to "Sign Up", new_user_registration_path %>
-            </li>
+
           </ul>
         </div>
       </div>
@@ -68,6 +72,8 @@
           <%flash.each do |a, b| %>
           <div class="alert alert-success"> <%= b %> </div>
           <%end%>
+          <br>
+          <br>
           <%= yield %>
         </div>
       </div>

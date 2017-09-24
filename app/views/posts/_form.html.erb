@@ -1,14 +1,21 @@
-<h2>New Post</h2>
-<p>Add your new posts here </p>
-
 <%= form_for @post, html: { multipart: true } do |f| %>
+
+<div class="field">
     <%= f.label :image %>
     <%= f.file_field :image%>
+</div>
+
   <br>
+
+<div class="field">
   <%= f.label :description %>
-  <br>
   <%= f.text_area :description %>
+</div>
+
   <br>
+  
+<div class="actions">
   <%= f.submit %>
+</div>
 
 <%end%>

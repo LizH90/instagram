@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
+
   def new
     @post = Post.new
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order('created_at DESC')
   end
 
   def show
@@ -12,20 +13,34 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(permit_post)
+    @post = Post.new(post_params)
     if @post.save
-      flash[:success] = "Success!"
+      flash[:success] = 'Success!'
       redirect_to post_path(@post)
     else
       flash[:error] = @post.errors.full_messages
-      redirect_to new_post_path
+      render 'new'
     end
   end
 
+  def destroy
+    @post = Post.destroy(params[:id])
+    redirect_to post_path
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(params[:id])
+      flash[:success] = 'Pic was updated!'
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
 
   private
 
-  def permit_post
-    params.require(:post).permit(:image,:description)
+  def post_params
+    params.require(:post).permit(:image, :description)
   end
 end
