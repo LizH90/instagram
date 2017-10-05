@@ -48,10 +48,8 @@ As a user
 I would like to be able to upload photos
 So they are available for me and others to view at any time
 ```
+```
 As a user
 I would like to be edit and delete photos
 So that I can amend them if I change my mind
 ```
-Deployment:
--------
-This can be found here:
