@@ -6,7 +6,7 @@ A photo uploading website created with Ruby on Rails.
 * Ruby version 2.4.0
 
 
-![alt text](screenshots/instagram.png)
+![alt text](screenshots/Instagram.png)
 
 Setup:
 -------
