@@ -5,6 +5,9 @@ A photo uploading website created with Ruby on Rails.
 
 * Ruby version 2.4.0
 
+
+![alt text](screenshots/instagram.png)
+
 Setup:
 -------
 
@@ -24,6 +27,11 @@ you haven't already and then run this in the command line:
 $ rake db:create
 $ rake db:migrate
 ```
+
+Getting Started:
+------
+To view this app type ```bin/rails server``` into the command line. Then navigate to http://localhost:3000/ to sign in.
+
 
 Tests:
 -------
